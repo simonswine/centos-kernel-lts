@@ -561,7 +561,11 @@ BuildRequires: pciutils-devel
 %endif
 %endif
 %if %{with_bpftool}
+%if 0%{?rhel} == 7
+BuildRequires: python2-docutils
+%else
 BuildRequires: python3-docutils
+%endif
 BuildRequires: zlib-devel binutils-devel
 %endif
 %if %{with_selftests}
