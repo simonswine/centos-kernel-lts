@@ -1,0 +1,28 @@
+From 596f13e776e5dee3e1e5b751b0000049c47ff08f Mon Sep 17 00:00:00 2001
+From: Fedora Kernel Team <kernel-team@fedoraproject.org>
+Date: Fri, 29 Nov 2019 14:49:00 +0000
+Subject: [PATCH] Fix mt7615
+
+---
+ drivers/net/wireless/mediatek/mt76/mt7615/mac.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mac.c b/drivers/net/wireless/mediatek/mt76/mt7615/mac.c
+index e07ce2c..6b39184 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/mac.c
+@@ -13,10 +13,7 @@
+ #include "../dma.h"
+ #include "mac.h"
+ 
+-static inline s8 to_rssi(u32 field, u32 rxv)
+-{
+-	return (FIELD_GET(field, rxv) - 220) / 2;
+-}
++#define to_rssi(field, rxv) 	((FIELD_GET(field, rxv) - 220) / 2)
+ 
+ static struct mt76_wcid *mt7615_rx_get_wcid(struct mt7615_dev *dev,
+ 					    u8 idx, bool unicast)
+-- 
+1.8.3.1
+

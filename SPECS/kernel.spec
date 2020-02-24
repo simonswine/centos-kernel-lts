@@ -55,7 +55,7 @@ Summary: The Linux kernel
 
 # define buildid .local
 
-%if 0%{?fedora}
+%if 0%{?fedora}%{?centos}
 %define primary_target fedora
 %else
 %define primary_target rhel
@@ -459,13 +459,16 @@ Summary: The Linux kernel
 %define with_up 0
 %define with_debug 0
 %define with_debuginfo 0
+%define with_perf 0
+%define with_tools 0
+%define with_bpftool 0
 %define with_selftests 0
 %define with_pae 0
 %define _enable_debug_packages 0
 %endif
 
 # Architectures we build tools/cpupower on
-%if 0%{?fedora}
+%if 0%{?fedora}%{?centos}
 %define cpupowerarchs %{ix86} x86_64 ppc64le %{arm} aarch64
 %else
 %define cpupowerarchs i686 x86_64 ppc64le aarch64
@@ -817,6 +820,8 @@ Patch601: alsa-5.6.patch
 # This is already in 5.5 rhbz 1794369
 Patch603: 0001-e1000e-Add-support-for-Comet-Lake.patch
 
+#CentOS
+Patch9999: 0001-Fix-mt7615.patch
 # END OF PATCH DEFINITIONS
 
 %endif
