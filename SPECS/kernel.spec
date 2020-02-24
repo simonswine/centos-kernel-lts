@@ -850,6 +850,10 @@ Patch523: media-rc-prevent-memory-leak-in-cx23888_ir_probe.patch
 # CVE-2019-18808 rhbz 1777418 1777421
 Patch527: 0001-crypto-ccp-Release-all-allocated-memory-if-sha-type-.patch
 
+# https://bugzilla.redhat.com/show_bug.cgi?id=1797052
+# http://lists.infradead.org/pipermail/linux-arm-kernel/2020-February/712003.html
+Patch528: 0001-mm-Avoid-creating-virtual-address-aliases-in-brk-mma.patch
+
 # https://gitlab.freedesktop.org/drm/intel/issues/673
 Patch531: drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
 
@@ -2904,3 +2908,4 @@ fi
 - Disable CONFIG_DEBUG_INFO_BTF
 - Import headers and tools from Fedora
 - Fix BR foor CentOS 7
+- aarch64 mmap fixes
