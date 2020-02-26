@@ -89,7 +89,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 20
+%define stable_update 22
 # Set rpm version accordingly
 %if 0%{?stable_update}
 %define stablerev %{stable_update}
@@ -2905,6 +2905,9 @@ fi
 #
 #
 %changelog
+* Wed Feb 26 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.22-200
+- Update to 5.4.22
+
 * Mon Feb 24 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.20-200
 - Import from f31
 - Remove Fedora signing token
