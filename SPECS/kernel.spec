@@ -866,6 +866,9 @@ Patch601: alsa-5.6.patch
 # This is already in 5.5 rhbz 1794369
 Patch603: 0001-e1000e-Add-support-for-Comet-Lake.patch
 
+#KVM fix
+Patch700: 0001-arm64-kvm-Fix-IDMAP-overlap-with-HYP-VA.patch
+
 #CentOS
 Patch9999: 0001-Fix-mt7615.patch
 # END OF PATCH DEFINITIONS
@@ -2909,3 +2912,4 @@ fi
 - Import headers and tools from Fedora
 - Fix BR foor CentOS 7
 - aarch64 mmap fixes
+- aarch64 kvm fixes
