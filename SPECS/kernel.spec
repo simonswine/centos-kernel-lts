@@ -89,7 +89,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 22
+%define stable_update 25
 # Set rpm version accordingly
 %if 0%{?stable_update}
 %define stablerev %{stable_update}
@@ -789,7 +789,6 @@ Source5000: patch-5.%{base_sublevel}-git%{gitrev}.xz
 # 200 - x86 / secureboot
 
 # bz 1497559 - Make kernel MODSIGN code not error on missing variables
-Patch200: 0001-Make-get_cert_list-not-complain-about-cert-lists-tha.patch
 Patch201: 0002-Add-efi_status_to_str-and-rework-efi_status_to_err.patch
 Patch202: 0003-Make-get_cert_list-use-efi_status_to_str-to-print-er.patch
 
@@ -849,13 +848,6 @@ Patch523: media-rc-prevent-memory-leak-in-cx23888_ir_probe.patch
 
 # CVE-2019-18808 rhbz 1777418 1777421
 Patch527: 0001-crypto-ccp-Release-all-allocated-memory-if-sha-type-.patch
-
-# https://bugzilla.redhat.com/show_bug.cgi?id=1797052
-# http://lists.infradead.org/pipermail/linux-arm-kernel/2020-February/712003.html
-Patch528: 0001-mm-Avoid-creating-virtual-address-aliases-in-brk-mma.patch
-
-# https://gitlab.freedesktop.org/drm/intel/issues/673
-Patch531: drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
 
 # ALSA code from v5.5 (Intel ASoC Sound Open Firmware driver support)
 Patch600: alsa-5.5.patch
@@ -2905,6 +2897,9 @@ fi
 #
 #
 %changelog
+* Sat Mar 14 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.25-200
+- Update to 5.4.25
+
 * Wed Feb 26 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.22-200
 - Update to 5.4.22
 
