@@ -215,6 +215,13 @@ Summary: The Linux kernel
 %define with_bpftool 0
 %endif
 
+%if 0%{?centos}
+# no selftests for now
+%define with_selftests 0
+# no ipa_clone for now
+%define with_ipaclones 0
+%endif
+
 %if %{with_verbose}
 %define make_opts V=1
 %else
@@ -354,7 +361,7 @@ Summary: The Linux kernel
 %define doc_build_fail true
 %endif
 
-%if 0%{?fedora}
+%if 0%{?fedora}%{?centos}
 # don't do debug builds on anything but i686 and x86_64
 %ifnarch i686 x86_64
 %define with_debug 0
@@ -461,7 +468,7 @@ Summary: The Linux kernel
 # Which is a BadThing(tm).
 
 # We only build kernel-headers on the following...
-%if 0%{?fedora}
+%if 0%{?fedora}%{?centos}
 %define nobuildarches i386
 %else
 %define nobuildarches i386 i686
@@ -532,6 +539,13 @@ BuildRequires: kmod, patch, bash, tar, git-core
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl-interpreter, perl-Carp, perl-devel, perl-generators, make, diffutils, gawk
 BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc, bison, flex
 BuildRequires: net-tools, hostname, bc, elfutils-devel
+%if 0%{?rhel} == 7
+BuildRequires:  devtoolset-8-build
+BuildRequires:  devtoolset-8-binutils
+BuildRequires:  devtoolset-8-gcc
+BuildRequires:  devtoolset-8-make
+BuildRequires:  python3-rpm-macros
+%endif
 %if 0%{?fedora}
 BuildRequires: dwarves
 %endif
@@ -562,7 +576,7 @@ BuildRequires: pciutils-devel
 %endif
 %if %{with_bpftool}
 %if 0%{?rhel} == 7
-BuildRequires: python2-docutils
+BuildRequires: python-docutils
 %else
 BuildRequires: python3-docutils
 %endif
@@ -572,7 +586,11 @@ BuildRequires: zlib-devel binutils-devel
 %if 0%{?fedora}
 BuildRequires: clang llvm
 %else
+%if 0%{?rhel} == 7
+BuildRequires: llvm-toolset-7.0
+%else
 BuildRequires: llvm-toolset
+%endif
 %endif
 %ifnarch %{arm}
 BuildRequires: numactl-devel
@@ -1300,6 +1318,10 @@ input and output, etc.
 %endif
 
 %prep
+%if 0%{?rhel} == 7
+source scl_source enable devtoolset-8 || :
+source scl_source enable llvm-toolset-7.0 || :
+%endif
 # do a few sanity-checks for --with *only builds
 %if %{with_baseonly}
 %if !%{with_up}%{with_pae}
@@ -1618,6 +1640,10 @@ cd ..
 ### build
 ###
 %build
+%if 0%{?rhel} == 7
+source scl_source enable devtoolset-8 || :
+source scl_source enable llvm-toolset-7.0 || :
+%endif
 
 %if %{with_sparse}
 %define sparse_mflags	C=1
@@ -2353,6 +2379,10 @@ find Documentation -type d | xargs chmod u+w
 ###
 
 %install
+%if 0%{?rhel} == 7
+source scl_source enable devtoolset-8 || :
+source scl_source enable llvm-toolset-7.0 || :
+%endif
 
 cd linux-%{KVERREL}
 
