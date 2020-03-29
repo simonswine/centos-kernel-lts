@@ -89,7 +89,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 25
+%define stable_update 28
 # Set rpm version accordingly
 %if 0%{?stable_update}
 %define stablerev %{stable_update}
@@ -2927,6 +2927,10 @@ fi
 #
 #
 %changelog
+* Sun Mar 29 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.28-200
+- Update to 5.4.28
+- Use gcc 8 in CentOS7
+
 * Sat Mar 14 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.25-200
 - Update to 5.4.25
 
