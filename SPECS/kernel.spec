@@ -89,7 +89,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 28
+%define stable_update 38
 # Set rpm version accordingly
 %if 0%{?stable_update}
 %define stablerev %{stable_update}
@@ -866,12 +866,6 @@ Patch523: media-rc-prevent-memory-leak-in-cx23888_ir_probe.patch
 
 # CVE-2019-18808 rhbz 1777418 1777421
 Patch527: 0001-crypto-ccp-Release-all-allocated-memory-if-sha-type-.patch
-
-# ALSA code from v5.5 (Intel ASoC Sound Open Firmware driver support)
-Patch600: alsa-5.5.patch
-
-# ALSA code from v5.6 (Intel ASoC Sound Open Firmware driver support)
-Patch601: alsa-5.6.patch
 
 # This is already in 5.5 rhbz 1794369
 Patch603: 0001-e1000e-Add-support-for-Comet-Lake.patch
@@ -2927,6 +2921,10 @@ fi
 #
 #
 %changelog
+* Sun May  3 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.38-200
+- Update to 5.4.38
+- Drop ASoC patches
+
 * Sun Mar 29 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.28-200
 - Update to 5.4.28
 - Use gcc 8 in CentOS7
