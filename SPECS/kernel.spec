@@ -89,7 +89,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 38
+%define stable_update 42
 # Set rpm version accordingly
 %if 0%{?stable_update}
 %define stablerev %{stable_update}
@@ -2921,6 +2921,9 @@ fi
 #
 #
 %changelog
+* Thu May 21 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.42-200
+- Update to 5.4.42
+
 * Sun May  3 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.38-200
 - Update to 5.4.38
 - Drop ASoC patches
