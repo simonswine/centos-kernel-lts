@@ -539,6 +539,7 @@ BuildRequires: kmod, patch, bash, tar, git-core
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl-interpreter, perl-Carp, perl-devel, perl-generators, make, diffutils, gawk
 BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc, bison, flex
 BuildRequires: net-tools, hostname, bc, elfutils-devel
+BuildRequires: libcap-devel libcap-ng-devel rsync
 %if 0%{?rhel} == 7
 BuildRequires:  devtoolset-8-build
 BuildRequires:  devtoolset-8-binutils
