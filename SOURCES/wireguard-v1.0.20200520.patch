@@ -1,3 +1,9 @@
+From c8218e9b3c38fcd36a2d06eec09952a0c6cee9e0 Mon Sep 17 00:00:00 2001
+From: Christian Simon <simon@swine.de>
+Date: Sun, 31 May 2020 09:31:05 +0100
+Subject: [PATCH] Add wireguard
+
+---
 --- /dev/null	2020-05-28 14:14:56.233534486 +0100
 +++ b/net/wireguard/allowedips.c	2020-05-30 11:53:23.585418053 +0100
 @@ -0,0 +1,382 @@
