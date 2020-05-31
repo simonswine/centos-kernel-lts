@@ -874,6 +874,9 @@ Patch603: 0001-e1000e-Add-support-for-Comet-Lake.patch
 #KVM fix
 Patch700: 0001-arm64-kvm-Fix-IDMAP-overlap-with-HYP-VA.patch
 
+#Add wireguard
+Patch800: wireguard-v1.0.20200520.patch
+
 #CentOS
 Patch9999: 0001-Fix-mt7615.patch
 # END OF PATCH DEFINITIONS
