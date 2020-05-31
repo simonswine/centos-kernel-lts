@@ -2925,6 +2925,10 @@ fi
 #
 #
 %changelog
+* Sun May 31 2020 Christain Simon <simon@swine.de> - 5.4.43-200
+- Update to 5.4.43
+- Add wireguard v1.0.20200520
+
 * Thu May 21 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.42-200
 - Update to 5.4.42
 
