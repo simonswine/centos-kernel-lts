@@ -135,7 +135,7 @@ Summary: The Linux kernel
 # tools
 %define with_tools     %{?_without_tools:     0} %{?!_without_tools:     1}
 # bpf tool
-%define with_bpftool   %{?_without_bpftool:   0} %{?!_without_bpftool:   1}
+%define with_bpftool   %{?_without_bpftool:   0} %{?!_without_bpftool:   0}
 # kernel-debuginfo
 %define with_debuginfo %{?_without_debuginfo: 0} %{?!_without_debuginfo: 1}
 # Want to build a the vsdo directories installed
