@@ -540,13 +540,6 @@ BuildRequires: bzip2, xz, findutils, gzip, m4, perl-interpreter, perl-Carp, perl
 BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc, bison, flex
 BuildRequires: net-tools, hostname, bc, elfutils-devel
 BuildRequires: libcap-devel libcap-ng-devel rsync
-%if 0%{?rhel} == 7
-BuildRequires:  devtoolset-8-build
-BuildRequires:  devtoolset-8-binutils
-BuildRequires:  devtoolset-8-gcc
-BuildRequires:  devtoolset-8-make
-BuildRequires:  python3-rpm-macros
-%endif
 %if 0%{?fedora}
 BuildRequires: dwarves
 %endif
@@ -587,11 +580,6 @@ BuildRequires: zlib-devel binutils-devel
 %if 0%{?fedora}
 BuildRequires: clang llvm
 %else
-%if 0%{?rhel} == 7
-BuildRequires: llvm-toolset-7.0
-%else
-BuildRequires: llvm-toolset
-%endif
 %endif
 %ifnarch %{arm}
 BuildRequires: numactl-devel
@@ -1316,10 +1304,6 @@ input and output, etc.
 %endif
 
 %prep
-%if 0%{?rhel} == 7
-source scl_source enable devtoolset-8 || :
-source scl_source enable llvm-toolset-7.0 || :
-%endif
 # do a few sanity-checks for --with *only builds
 %if %{with_baseonly}
 %if !%{with_up}%{with_pae}
@@ -1638,11 +1622,6 @@ cd ..
 ### build
 ###
 %build
-%if 0%{?rhel} == 7
-source scl_source enable devtoolset-8 || :
-source scl_source enable llvm-toolset-7.0 || :
-%endif
-
 %if %{with_sparse}
 %define sparse_mflags	C=1
 %endif
@@ -2377,11 +2356,6 @@ find Documentation -type d | xargs chmod u+w
 ###
 
 %install
-%if 0%{?rhel} == 7
-source scl_source enable devtoolset-8 || :
-source scl_source enable llvm-toolset-7.0 || :
-%endif
-
 cd linux-%{KVERREL}
 
 %if %{with_doc}
