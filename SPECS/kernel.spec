@@ -2903,6 +2903,9 @@ fi
 #
 #
 %changelog
+* Mon Jun 1 2020 Christain Simon <simon@swine.de> - 5.4.43-300
+- Use default gcc on Centos 7
+
 * Sun May 31 2020 Christain Simon <simon@swine.de> - 5.4.43-200
 - Update to 5.4.43
 - Add wireguard v1.0.20200520
