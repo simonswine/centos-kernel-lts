@@ -89,7 +89,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 43
+%define stable_update 77
 # Set rpm version accordingly
 %if 0%{?stable_update}
 %define stablerev %{stable_update}
@@ -2903,6 +2903,9 @@ fi
 #
 #
 %changelog
+* Sat Nov 14 2020 Christain Simon <simon@swine.de> - 5.4.77-200
+- Update to 5.4.77
+
 * Mon Jun 1 2020 Christain Simon <simon@swine.de> - 5.4.43-300
 - Use default gcc on Centos 7
 
